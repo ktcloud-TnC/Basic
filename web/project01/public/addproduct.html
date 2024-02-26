@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>상품 추가 폼</title>
+        <style>
+/* 전체 페이지 스타일링 */
+body {
+    font-family: Arial, sans-serif; /* 폰트 설정 */
+    display: flex; /* Flexbox 레이아웃 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    height: 100vh; /* 뷰포트 높이를 전체 차지 */
+    background-color: #f5f5f5; /* 배경색 설정 */
+}
+
+.add-product {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center; /* 텍스트를 중앙 정렬합니다. */
+    display: block; /* 블록 레벨 요소로 만듭니다. */
+    padding-top: 10px;
+}
+
+/* 카드 스타일링 */
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+    width: 300px;
+    flex-direction: column;
+    gap: 35px;
+    background: #e3e3e3;
+    box-shadow: 16px 16px 32px #c8c8c8, -16px -16px 32px #fefefe;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* 입력 필드 컨테이너 스타일링 */
+.inputBox {
+    position: relative;
+    width: 250px; /* 입력 필드의 너비를 지정합니다. */
+    margin-bottom: 20px;
+    align-items: center;
+    display: flex; /* Flexbox 레이아웃을 사용합니다. */
+    justify-content: center; /* 수평 방향으로 중앙 정렬합니다. */
+    flex-direction: column; /* 자식 요소들을 수직 방향으로 정렬합니다. */
+}
+
+.inputBox textarea {
+    resize: vertical; /* 세로 방향으로만 크기 조정 가능 */
+    max-width: 100%; /* 가로 크기 최대값을 100%로 설정하여 가로 크기 고정 */
+    min-width: 100%; /* 가로 크기 최소값도 100%로 설정하여 가로 크기 고정 */
+    /* 기존 스타일 유지 */
+    height: 150px; /* 초기 세로 크기 설정, 필요에 따라 조정 가능 */
+    padding: 10px;
+    outline: none;
+    border: none;
+    color: #000000;
+    font-size: 1em;
+    background: transparent;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transition: 0.1s;
+    border-bottom-left-radius: 8px;
+}
+
+
+/* 입력 필드 스타일링 */
+.inputBox input {
+    width: 100%; /* 부모 요소의 전체 너비 차지 */
+    padding: 10px; /* 패딩 설정 */
+    outline: none; /* 포커스 시 아웃라인 제거 */
+    border: none; /* 테두리 제거 */
+    color: #000000; /* 글자색 설정 */
+    font-size: 1em; /* 글자 크기 설정 */
+    background: transparent; /* 배경색 투명 */
+    border-left: 2px solid #000; /* 왼쪽 테두리 설정 */
+    border-bottom: 2px solid #000; /* 하단 테두리 설정 */
+    transition: 0.1s; /* 전환 효과 */
+    border-bottom-left-radius: 8px; /* 왼쪽 하단 테두리 둥글게 처리 */
+}
+
+/* 레이블 스타일링 */
+.inputBox span {
+    position: absolute; /* 절대적 위치 설정 */
+    left: 10px; /* 왼쪽에서부터의 거리 */
+    top: 8px; /* 상단에서부터의 거리 */
+    transition: 0.5s; /* 전환 효과 */
+    letter-spacing: 3px; /* 글자 간격 */
+    color: #666666; /* 글자색 */
+    font-size: 14px; /* 글자 크기 */
+    font-weight: 500;
+    text-transform: uppercase; /* 대문자 변환 */
+    pointer-events: none; /* 포인터 이벤트 무시 */
+}
+
+/* 입력 필드 포커스 및 유효성 검사 시 레이블 스타일 변화 */
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span,
+.inputBox textarea:focus ~ span,
+.inputBox textarea:valid ~ span {
+    transform: translateY(-15px) translateX(170px); /* Y축으로 이동 */
+    background: #000; /* 배경색 */
+    color: #fff; /* 글자색 */
+    font-size: 1em; /* 글자 크기 축소 */
+    padding: 1px 5px; /* 패딩 조정 */
+    border-radius: 5px; /* 테두리 둥글게 처리 */
+}
+
+/* 입력 필드 포커스 및 유효성 검사 시 테두리 스타일 변화 */
+.inputBox input:focus,
+.inputBox input:valid,
+.inputBox textarea:focus,
+.inputBox textarea:valid {
+    border: 2px solid #000; /* 테두리 설정 */
+    border-radius: 8px; /* 테두리 둥글게 처리 */
+}
+
+/* '입력' 버튼 스타일링 */
+.enter {
+    height: 45px; /* 높이 설정 */
+    width: 100px; /* 너비 설정 */
+    border-radius: 5px; /* 테두리 둥글게 처리 */
+    border: 2px solid #000; /* 테두리 설정 */
+    cursor: pointer; /* 커서 모양 변경 */
+    background-color: transparent; /* 배경색 투명 */
+    transition: 0.5s; /* 전환 효과 */
+    text-transform: uppercase; /* 대문자 변환 */
+    font-size: 14px; /* 글자 크기 */
+    letter-spacing: 2px; /* 글자 간격 */
+    margin-bottom: 1em; /* 하단 여백 */
+    align-self: center; /* 중앙 정렬 */
+}
+
+/* '입력' 버튼 호버 시 스타일 변화 */
+.enter:hover {
+    background-color: rgb(0, 0, 0); /* 배경색 변경 */
+    color: white; /* 글자색 변경 */
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <a class="add-product">add product</a>
+            <form id="addProductForm">
+                <div class="inputBox">
+                    <input type="text" id="categoryInput" required="required">
+                    <span>카테고리</span>
+                </div>
+                <div class="inputBox">
+                    <input type="text" id="nameInput" required="required">
+                    <span>상품명</span>
+                </div>
+                <div class="inputBox">
+                    <textarea id="descriptionInput" required="required"></textarea>
+                    <span>상품설명</span>
+                </div>
+                <button type="button" class="enter" onclick="addProduct()">상품 추가</button>
+            </form>
+        </div>
+
+        <script>
+            function addProduct() {
+                const category = document
+                    .getElementById('categoryInput')
+                    .value;
+                const name = document
+                    .getElementById('nameInput')
+                    .value;
+                const description = document
+                    .getElementById('descriptionInput')
+                    .value;
+
+                fetch('/api/products/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({category, name, description})
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error('상품 추가에 실패했습니다.');
+                    })
+                    .then(data => {
+                        alert('상품이 추가되었습니다.');
+                        if (window.opener && !window.opener.closed) {
+                            window
+                                .opener
+                                .location
+                                .reload();
+                        }
+                        window.close();
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        alert(error.message);
+                    });
+            }
+        </script>
+    </body>
+</html>
