@@ -1,4 +1,3 @@
 #!/bin/bash
 
-
-mv ./main.go /root/go/src/project01
+mv /home/ubuntu/Basic/main.go /root/go/src/project01
