@@ -1,7 +1,7 @@
 require('dotenv').config();
 const WAS_SERVER_IP = process.env.WAS_SERVER_IP || '172.25.1.177'; // was 서버 IP 주소
 
-const fetch = require('node-fetch'); // fetch 모듈 로드
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const fs = require('fs'); // fs 모듈 전체를 불러옴
 const morgan = require('morgan');
 const express = require('express');
