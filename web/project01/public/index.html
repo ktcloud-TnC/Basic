@@ -54,11 +54,18 @@
                     <h2>kt cloud service finder&nbsp;<span class="right_logo">app</span></h2>
 
                     <!-- 파트너 선택 안내 문구 -->
-                    <p style="display: inline-block; vertical-align: text-bottom; color: #ffffff;">원하는 서비스를 선택하면 상세한 설명을 확인 할 수 있습니다.</p><br>
+                    <p
+                        style="display: inline-block; vertical-align: text-bottom; color: #ffffff; font-weight: 600;">
+                        <span style="color: #007bff;">&#10003;</span>
+                        원하는 서비스를 선택하면 상세한 설명을 확인 할 수 있습니다.</p><br>
                     <small style="position: sticky; z-index: 3; color: #ffffff;">
                         <span class="big-bullet"></span>&nbsp;WAS 서버 내의 에코(Echo) 애플리케이션은 DB 서버에서 서비스 목록을 불러옵니다.<br>
-                        <span class="big-bullet"></span>&nbsp;WEB 서버에서 특정 서비스를 누르면 서비스의 설명을 WAS 서버로 호출합니다.<br>
-                        <span class="big-bullet"></span>&nbsp;WAS 서버 내의 에코(Echo) 애플리케이션은 DB 서버에서 특정 서비스의 설명을 검색합니다.<br>
+                        <span class="big-bullet"></span>&nbsp;WEB 서버는 WAS 서버를 통해 전달받은 서비스 목록을 표시합니다.<br>
+                        <span class="big-bullet"></span>&nbsp;사용자가 WEB 서버에서 특정 서비스를 선택하면, 해당 서비스의 설명을 WAS 서버로 요청합니다.<br>
+                        <span class="big-bullet"></span>&nbsp;WAS 서버 내의 에코(Echo) 애플리케이션은 DB 서버에서 특정 서비스의 설명을 검색하고 불러옵니다.<br>
+                        <span class="big-bullet"></span>&nbsp;WEB 서버는 WAS 서버를 통해 전달받은 서비스의 설명을 표시합니다.<br>
+                        <span class="big-bullet"></span>&nbsp;사용자는 'Add Database' 버튼을 클릭하여 새로운 상품을 DB에 추가할 수 있습니다.<br>
+                        <span class="big-bullet"></span>&nbsp;WEB 서버에서 '상품 추가' 버튼을 클릭하면, 입력된 정보가 에코(Echo) 애플리케이션을 통해 DB 서버에 추가됩니다.<br>
                     </small>
 
                     <br>
@@ -100,10 +107,14 @@
                 </section>
                 <section>
                     <p
-                        style="display: inline-block; vertical-align: text-bottom; color: #173d61; font-weight: 600;">각 서버의 CPU,메모리 사용량을 확인하고 과부하 테스트를 통해 오토스케일링 여부를 확인합니다.</p><br>
+                        style="display: inline-block; vertical-align: text-bottom; color: #173d61; font-weight: 600;">
+                        <span style="color: #007bff;">&#10003;</span>
+                        각 서버의 CPU,메모리 사용량을 확인하고 과부하 테스트를 통해 오토스케일링 여부를 확인합니다.</p><br>
                     <small>
-                        <span class="big-bullet"></span>&nbsp;웹 서버에 스트레스 테스트 도구를 설치한 후 실행하여 CPU 과부하를 유발합니다.<br>
-                        <span class="big-bullet"></span>&nbsp;콘솔을 통해 설정한 트리거에 의해 오토스케일링이 작동되는지 확인합니다.</small>
+                        <span class="big-bullet"></span>&nbsp;'스트레스 툴 설치' 버튼을 클릭하여 웹 서버에 스트레스 테스트 도구를 설치합니다.<br>
+                        <span class="big-bullet"></span>&nbsp;'과부하 테스트 시작' 버튼을 클릭하여 웹 서버에 CPU 과부하를 유발합니다. (500초간 지속)<br>
+                        <span class="big-bullet"></span>&nbsp;kt cloud 콘솔 Watch 서비스에 접속하여 CPU 사용률을 확인합니다.<br>
+                        <span class="big-bullet"></span>&nbsp;설정한 트리거에 의해 오토스케일링이 작동되는지 콘솔을 통해 확인합니다.</small>
                     <!-- 파트너 테이블 아래에 서버 상태 및 스트레스 테스트 컨테이너 추가 -->
                     <div class="server-status-container">
                         <!-- 웹 서버 상태 박스 -->
@@ -136,17 +147,26 @@
                 </section>
                 <section>
                     <p
-                        style="display: inline-block; vertical-align: text-bottom; margin-top: 40px; color: #173d61; font-weight: 600;">웹서버에 접속한 사용자들의 로그를 기록합니다.(WEB 서버)</p><br>
+                        style="display: inline-block; vertical-align: text-bottom; margin-top: 40px; color: #173d61; font-weight: 600;">
+                        <span style="color: #007bff;">&#10003;</span>
+                        웹서버에 접속한 사용자들의 로그를 기록합니다.(WEB 서버)</p><br>
                     <small>
-                        <span class="big-bullet"></span>&nbsp;웹서버에 접속한 사용자들의 접속 로그는 NAS(Network Attached Storage)에 기록됩니다.<br>
-                        <span class="big-bullet"></span>&nbsp;HA(High Availability)와 오토스케일링 구성 시에도 각각의
-                        웹서버는 동일한 디렉토리 내 동일한 파일에 접속 로그를 기록할 수 있습니다.<br>
-                        <span class="big-bullet"></span>&nbsp;이는 여러 대의 웹서버가 로그를 중복해서 기록하지 않고, NAS에 통합하여
-                        기록함으로써 로그를 효과적으로 관리하고 분석하는 데 도움이 됩니다.</small>
+                        <span class="big-bullet"></span>&nbsp;각각의 웹 서버는 접속한 사용자들의 접속 로그를 로컬 디렉토리(/f1/logs/access.log)에 기록합니다.<br>
+                        <span class="big-bullet"></span>&nbsp;여러 대의 웹 서버에서 기록한 로그 데이터를 NAS(Network
+                        Attached Storage)에 취합하기 위해 데이터 수집 도구를 설치합니다.<br>
+                        <span class="big-bullet"></span>&nbsp;데이터 수집 도구는 각 웹 서버에서 발생하는 접속 로그를 즉시 버퍼 파일에 저장합니다.<br>
+                        <span class="big-bullet"></span>&nbsp;데이터 수집 도구는 버퍼 파일을 NAS 디렉토리(/n1/logs/all)에 취합하여 저장합니다. (15초마다)<br>
+                        <span class="big-bullet"></span>&nbsp;취합된 파일은 '/n1/logs/all/all-access-YYMMDD' 형식으로 하루에 1개씩 생성되어 NAS에 보관됩니다.<br>
+                        <span class="big-bullet"></span>&nbsp;어플리케이션은 사용자가 접속한 당일에 해당하는 취합
+                        파일(/n1/logs/all/all-access-YYMMDD.log)만을 로그 데이터 영역에 표시합니다.<br>
+
+                        <p>이는 HA(High Availability)와 오토스케일링 구성 시에도 NAS에 통합하여 기록함으로써 로그를 효과적으로 관리하고 분석하는
+                            데 도움이 됩니다.</p>
+                    </small>
                     <!-- 로그 데이터 영역 상단에 설명 테이블 추가 -->
                     <table class="logDataDescriptionTable">
                         <tr>
-                            <th>웹서버 접속 로그 (로그 경로: /n1/logs/access.log)</th>
+                            <th>웹서버 접속 로그 (로그 경로: /n1/logs/all/all-access-YYMMDD.log)</th>
                         </tr>
                     </table>
 
@@ -157,12 +177,21 @@
                 </section>
                 <section>
                     <p
-                        style="display: inline-block; vertical-align: text-bottom; margin-top: 40px; color: #173d61; font-weight: 600;">어플리케이션의 로그를 기록합니다.(WAS 서버)</p><br>
+                        style="display: inline-block; vertical-align: text-bottom; margin-top: 40px; color: #173d61; font-weight: 600;">
+                        <span style="color: #007bff;">&#10003;</span>
+                        어플리케이션의 로그를 기록합니다.(WAS 서버)</p><br>
                     <small>
-                        <span class="big-bullet"></span>&nbsp;WAS서버의 어플리케이션 로그는 LVM(Logical Volume Manager)을 활용하여 구성된 추가 볼륨에 기록됩니다.<br>
+                        <span class="big-bullet"></span>&nbsp;WAS 서버의 어플리케이션 로그는 LVM(Logical Volume
+                        Manager)을 활용하여 구성된 추가 볼륨(/waslog/app.log)에 기록됩니다.<br>
+                        <span class="big-bullet"></span>&nbsp;사용자는 필요에 따라 추가 볼륨을 더하여 로그 파일의 크기 변화에 대응합니다.<br>
+                        <span class="big-bullet"></span>&nbsp;어플리케이션은 기록된 어플리케이션 로그 데이터를 웹소켓을 통해 즉시 로그 데이터 영역에 표시합니다.<br>
                         <span class="big-bullet"></span>&nbsp;LVM을 사용하면 어플리케이션 로그 파일의 크기가 증가해도 유연하게 대처할 수 있습니다.<br>
                         <span class="big-bullet"></span>&nbsp;LVM을 통해 디스크 공간을 유연하게 확장하고 축소할 수 있으며, 이를 통해
-                        로그의 양이 증가해도 데이터의 안정성과 성능을 유지할 수 있습니다.</small>
+                        로그의 양이 증가해도 데이터의 안정성과 성능을 유지할 수 있습니다.<br>
+
+                        <p>이러한 설정은 서버 용량의 동적인 조정이 필요한 상황에서도 로그 파일의 크기 변화에 신속하게 대응하여 시스템 안정성과 성능을 유지하면서
+                            로그 데이터를 효율적으로 관리할 수 있도록 도와줍니다.</p>
+                    </small>
                     <!-- 로그 데이터 영역 상단에 설명 테이블 추가 -->
                     <table class="logDataDescriptionTable">
                         <tr>

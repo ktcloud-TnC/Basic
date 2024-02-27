@@ -15,7 +15,7 @@ body {
 
 /* 왼쪽 영역 스타일 */
 .left-side {
-    width: 30%;
+    width: 25%;
     /* 너비 설정 */
     height: 100vh;
     /* 높이 설정 */
@@ -47,7 +47,7 @@ body {
 
 /* 오른쪽 영역 스타일 */
 .right-side {
-    width: 70%;
+    width: 75%;
     /* 너비 설정 */
     height: 100vh;
     /* 높이 설정 */
