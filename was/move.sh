@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mv /root/Basic/main.go /root/go/src/project01
+mv /root/Basic/was/main.go /root/go/src/project01
