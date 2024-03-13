@@ -118,7 +118,7 @@ func main() {
 
 // DB connection function
 func ConnectDB() (*sql.DB, error) {
-	connectionString := fmt.Sprintf("edu:ktcloud123!@tcp(%s:10061)/mydb?charset=utf8", dbServerIP)
+	connectionString := fmt.Sprintf("edu:Ktcloud123!@tcp(%s:10061)/mydb?charset=utf8", dbServerIP)
 	db, err := sql.Open("mysql", connectionString)
 	if err != nil {
 		log.Println("Error opening DB:", err)
