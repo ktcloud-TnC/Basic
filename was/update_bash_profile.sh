@@ -11,4 +11,4 @@ echo "export PATH=\$PATH:\$GOROOT/bin" >> ~/.bash_profile
 # 변경사항 확인
 cat ~/.bash_profile
 
-echo "환경 변수 설정이 적용되었습니다. 변경사항을 적용하려면, 'source ~/.bash_profile'명령어를 실행하세요.
+echo "환경 변수 설정이 적용되었습니다. 변경사항을 적용하려면, 'source ~/.bash_profile'명령어를 실행하세요."
