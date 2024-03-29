@@ -34,6 +34,12 @@ var (
 func main() {
 	e := echo.New()
 
+	// 한국 시간대(KST) 설정
+	location, err := time.LoadLocation("Asia/Seoul")
+	if err != nil {
+		e.Logger.Fatal(err)
+	}
+
 	// middleware settings
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
@@ -58,7 +64,6 @@ func main() {
 
 	// Check if the log directory exists
 	logDir := filepath.Dir(logFilePath)
-	var err error // 이 부분을 여기로 이동
 	if _, err = os.Stat(logDir); os.IsNotExist(err) {
 		logDirExists = false
 		log.SetOutput(os.Stderr)
@@ -76,12 +81,21 @@ func main() {
 
 	// Log middleware settings
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
-		Output: logFile,
-		Skipper: func(c echo.Context) bool {
-			// Requests for the /api/was-server-status path are excluded from the log
-			return c.Request().URL.Path == "/api/was-server-status"
-		},
+		Format: `{"time":"${time_custom}","remote_ip":"${remote_ip}","method":"${method}",` +
+			`"uri":"${uri}","status":${status},"referer":"${referer}",` +
+			`"user_agent":"${user_agent}","response_time":"${latency_human}","bytes_in":${bytes_in},"bytes_out":${bytes_out}}` + "\n",
+		CustomTimeFormat: "2006-01-02 15:04:05", // Go의 시간 포맷
+		Output:           logFile,
 	}))
+
+	// Custom middleware to apply custom time format
+	e.Use(func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			now := time.Now().In(location)
+			c.Set("custom_time", now.Format("2006-01-02 15:04:05"))
+			return next(c)
+		}
+	})
 
 	// websocket endpoint
 	e.GET("/api/ws", handleWebSocket)
@@ -113,7 +127,7 @@ func main() {
 	})
 
 	// start server
-	e.Start(":80")
+	e.Logger.Fatal(e.Start(":80"))
 }
 
 // DB connection function
