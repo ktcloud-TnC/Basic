@@ -80,6 +80,13 @@ func main() {
 
 	// Log middleware settings
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+		Skipper: func(c echo.Context) bool {
+			// '/api/was-server-status'에 대한 요청은 로그를 기록하지 않음
+			if c.Path() == "/api/was-server-status" {
+				return true
+			}
+			return false
+		},
 		Format: `{"time":"${time_custom}","remote_ip":"${remote_ip}","method":"${method}",` +
 			`"uri":"${uri}","status":${status},"referer":"${referer}",` +
 			`"user_agent":"${user_agent}","response_time":"${latency_human}","bytes_in":${bytes_in},"bytes_out":${bytes_out}}` + "\n",
