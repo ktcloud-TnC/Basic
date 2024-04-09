@@ -87,9 +87,9 @@ func main() {
 			}
 			return false
 		},
-		Format: `{"time":"${time_custom}","remote_ip":"${remote_ip}","method":"${method}",` +
-			`"uri":"${uri}","status":${status},"referer":"${referer}",` +
-			`"user_agent":"${user_agent}","response_time":"${latency_human}","bytes_in":${bytes_in},"bytes_out":${bytes_out}}` + "\n",
+		Format: `${time_custom} | remote_ip:"${remote_ip}" | method:"${method}"` + "\n" +
+			`| uri: "${uri}" | status: ${status} | referer: "${referer}" |` +
+			` user_agent: "${user_agent}" | response_time: "${latency_human}" | bytes_in: ${bytes_in} | bytes_out: ${bytes_out}` + "\n",
 		CustomTimeFormat: "2006-01-02 15:04:05", // Go의 시간 포맷
 		Output:           logFile,
 	}))
