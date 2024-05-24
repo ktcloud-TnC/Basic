@@ -244,6 +244,7 @@ export default function Home() {
                                 <span className={styles.bigBullet}></span>&nbsp;어플리케이션은 기록된 어플리케이션 로그 데이터를 웹소켓을 통해 즉시 로그 데이터 영역에 표시합니다.<br/>
                                 <span className={styles.bigBullet}></span>&nbsp;LVM을 사용하면 어플리케이션 로그 파일의 크기가 증가해도 유연하게 대처할 수 있습니다.<br/>
                                 <span className={styles.bigBullet}></span>&nbsp;LVM을 통해 디스크 공간을 유연하게 확장하고 축소할 수 있으며, 이를 통해 로그의 양이 증가해도 데이터의 안정성과 성능을 유지할 수 있습니다.<br/>
+                                <span className={styles.bigBullet}></span>&nbsp;단 단일 볼륨 최대 용량인 2TB 내에서 사용 할 경우에 LVM을 사용하지 않더라도 kt cloud 콘솔 내 Size변경 기능을 통해서 유연하게 용량 증설이 가능합니다.<br/>
                                 
                                 <p>이러한 설정은 서버 용량의 동적인 조정이 필요한 상황에서도 로그 파일의 크기 변화에 신속하게 대응하여 시스템 안정성과 성능을 유지하면서
                             로그 데이터를 효율적으로 관리할 수 있도록 도와줍니다.</p>
