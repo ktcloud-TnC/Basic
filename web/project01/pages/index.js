@@ -238,12 +238,12 @@ export default function Home() {
                         <p className={styles.serviceDescription}>
                                 <span className={styles.serviceCheckMark}>&#10003;</span>
                                 &nbsp;어플리케이션의 로그를 기록합니다.(WAS 서버)</p><br/>
-                            <small className={styles.stickyNote}>
-                                <span className={styles.bigBullet}></span>&nbsp;WAS 서버의 어플리케이션 로그는 추가 Disk를 생성 및 연결(/waslog)하여 추가 볼륨 내 로그경로(/waslog/app.log)에 기록됩니다.<br/>
-                                <span className={styles.bigBullet}></span>&nbsp;사용자는 필요에 따라 추가 볼륨 Size를 변경하여 로그 파일의 크기 변화에 대응합니다.<br/>
+                                <small className={styles.stickyNote}>
+                                <span className={styles.bigBullet}></span>&nbsp;WAS 서버의 어플리케이션 로그는 LVM(Logical Volume Manager)을 활용하여 구성된 추가 볼륨(/waslog/app.log)에 기록됩니다.<br/>
+                                <span className={styles.bigBullet}></span>&nbsp;사용자는 필요에 따라 추가 볼륨을 더하여 로그 파일의 크기 변화에 대응합니다.<br/>
                                 <span className={styles.bigBullet}></span>&nbsp;어플리케이션은 기록된 어플리케이션 로그 데이터를 웹소켓을 통해 즉시 로그 데이터 영역에 표시합니다.<br/>
-                                <span className={styles.bigBullet}></span>&nbsp;추가 Disk를 사용하면 어플리케이션 로그 파일을 보다 안전하게 보관하고, 크기가 증가해도 유연하게 대처할 수 있습니다.<br/>
-                                <span className={styles.bigBullet}></span>&nbsp;Size변경 기능을 통해 디스크 공간을 유연하게 확장 할 수 있으며, 이를 통해 로그의 양이 증가해도 데이터의 안정성과 성능을 유지할 수 있습니다.<br/>
+                                <span className={styles.bigBullet}></span>&nbsp;LVM을 사용하면 어플리케이션 로그 파일의 크기가 증가해도 유연하게 대처할 수 있습니다.<br/>
+                                <span className={styles.bigBullet}></span>&nbsp;LVM을 통해 디스크 공간을 유연하게 확장하고 축소할 수 있으며, 이를 통해 로그의 양이 증가해도 데이터의 안정성과 성능을 유지할 수 있습니다.<br/>
                                 
                                 <p>이러한 설정은 서버 용량의 동적인 조정이 필요한 상황에서도 로그 파일의 크기 변화에 신속하게 대응하여 시스템 안정성과 성능을 유지하면서
                             로그 데이터를 효율적으로 관리할 수 있도록 도와줍니다.</p>
