@@ -1,18 +1,28 @@
 {
   "name": "project01",
   "version": "1.0.0",
-  "description": "",
-  "main": "web.js",
+  "description": "Next.js project01 web application",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node web.js"
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "lint": "next lint"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.1",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.45",
     "morgan": "^1.10.0",
-    "http-proxy-middleware": "^2.0.1"
+    "next": "^12.0.0",
+    "os-utils": "^0.0.14",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-virtualized": "^9.22.5",
+    "react-window": "^1.8.10",
+    "socket.io": "^4.7.5"
   }
 }

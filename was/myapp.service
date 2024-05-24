@@ -1,0 +1,11 @@
+[Unit]
+Description=My Go Application
+
+[Service]
+ExecStart=/root/go/src/project01/myapp
+WorkingDirectory=/root/go/src/project01
+Restart=always
+Environment="VAR1=value1" "VAR2=value2"
+
+[Install]
+WantedBy=multi-user.target

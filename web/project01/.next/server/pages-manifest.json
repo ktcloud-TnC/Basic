@@ -1,0 +1,11 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/api/hostname": "pages/api/hostname.js",
+  "/api/products/list": "pages/api/products/list.js",
+  "/api/was-server-status": "pages/api/was-server-status.js",
+  "/api/server-status": "pages/api/server-status.js",
+  "/api/nas-logs": "pages/api/nas-logs.js"
+}
