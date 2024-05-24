@@ -1,0 +1,900 @@
+/* // styles/Layout.module.css */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.leftSide {
+  flex: 2.5;
+  position: relative;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logoOverlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  height: auto;
+}
+
+.rightSide {
+  flex: 7.5;
+  height: 100%;
+  overflow-y: auto;
+  padding: 0;
+  box-sizing: border-box; /* 박스 크기 계산 방식을 border-box로 설정 */
+  background-color: #021a2f;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  position: sticky;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  z-index: 100; /* 다른 요소들 위에 위치하도록 z-index 설정 */
+  background: linear-gradient(to right, rgb(36, 49, 86), rgb(65, 80, 115));
+  padding: 0.5rem 2rem; /* 패딩 설정 */
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navItem {
+}
+
+.navLink {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+  position: relative;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00BFFF;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after, .navLink:focus::after {
+  width: 100%;
+}
+
+.navDivider {
+  color: #ffffff;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.copyright {
+  color: #fff;
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+.info {
+color: #ffffff;
+padding: 20px;
+margin-bottom: 25px;
+
+}
+
+.step {
+  color: #ffffff;
+  font-size: small;
+  text-align: right;
+  padding-right: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.step_left {
+  color: #ffffff;
+  font-size: small;
+  text-align: left;
+  padding-right: 20px;
+  font-weight: bold;
+  margin-top: -5px;
+}
+
+@keyframes shineEffect {
+  0%, 100% {
+    text-shadow: 0 0 8px #fff, 0 0 10px #fff, 0 0 12px #ff2d95, 0 0 20px #ff2d95, 0 0 30px #ff2d95, 0 0 40px #ff2d95;
+  }
+  50% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff2d95, 0 0 20px #ff2d95, 0 0 25px #ff2d95, 0 0 30px #ff2d95;
+  }
+}
+
+.shineText {
+  animation: shineEffect 2s linear infinite;
+}
+
+.name {
+margin-bottom: 40px;
+  }
+  
+.explain {
+  font-size: medium;
+  color: #bad8ff;
+  font-weight: bold;
+  }
+
+.mark {
+  display: inline-block;
+  border: 2px solid #007bff;
+  width: auto;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 30px;
+  vertical-align: unset;
+  color: #007bff;
+}
+
+.textMargin {
+  margin-top: 10px;
+  display: block; /* 또는 inline-block */
+}
+
+
+.hostname_ct {
+  font-weight: bold;
+  font-size: medium;
+  color: #000;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  top: 110px;
+  right: 25px;
+  padding: 10px; /* 내용과 테두리 사이의 여백을 위한 패딩 추가 */
+  width: auto;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hostname {
+  color: rgb(5, 126, 11);
+  display: inline;
+}
+
+/* 서버 상태 확인 버튼 스타일 */
+.status_check_btn {
+  background-color: rgb(5, 126, 11);
+  color: white;
+  border: none;
+  font-size: medium;
+  font-weight: bold;
+  position: absolute;
+  top: 190px;
+  right: 25px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px; /* 버튼 내부 여백을 위한 패딩 추가 */
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status_check_btn:hover {
+  background-color: #007bff;
+}
+
+/* 어플리케이션 영역 스타일 */
+.app_area {
+  display: grid;
+  padding: 20px 30px;
+  background-color: #6d6c6cb7;
+  /* 배경색 변경 */
+  border-radius: 15px;
+  /* 둥근 모서리 */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.05);
+  /* 그림자 효과 강화 */
+  height: auto;
+  /* 높이 자동 조정 */
+  width: 92%;
+  margin: 20px auto;
+  margin-bottom: 40px;
+  /* 상단 여백 및 자동 가운데 정렬 */
+  transform: translateZ(0);
+  /* 하드웨어 가속을 활용한 성능 최적화 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* 부드러운 변환 효과 */
+  border: solid rgba(54, 54, 54, 0.719);
+  border-width: 1.5px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://ss1.cloud.kt.com:1000/Basic/test/app.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.app_name {
+  position: relative;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 900;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  padding: 15px 30px;
+  margin: 20px auto;
+  margin-bottom: 30px;
+  /* Modification for center alignment */
+  border-bottom: 3px solid #173d61;
+  display: inline-block;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #1e5799 0%, #2989d8 50%, #207cca 75%, #7db9e8 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  justify-self: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  /* Hide content outside the app_name area */
+  z-index: -1;
+}
+
+.app_name::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /* 공의 초기 위치를 app_name 요소의 왼쪽 끝으로 설정 */
+  transform: translateY(-50%);
+  width: 30px;
+  /* 공의 크기를 증가 */
+  height: 30px;
+  /* 공의 크기를 증가 */
+  background-color: #03203a;
+  /* 공의 색상을 약간 어둡게 조정 */
+  border-radius: 50%;
+  /* 원형 모양 */
+  animation: moveLeftRight 6s ease-in-out infinite;
+  /* 애니메이션 지속 시간을 4초로 변경 */
+  box-shadow:inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+  /* 내부 그림자를 통해 빛 반사 효과 모방 */
+  5px 5px 15px rgba(0, 0, 0, 0.4);
+  /* 외부 그림자를 통해 입체감 강조 */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  /* 테두리를 통해 빛 반사 효과 추가 */
+  z-index: -1;
+}
+
+@keyframes moveLeftRight {
+  0%,
+  100% {
+      left: 0;
+  }
+  50% {
+      left: calc(100% - 30px);
+      /* Adjust the ball to only move within the width of the app_name element, reducing it by 30px to account for the size of the ball */
+  }
+}
+
+.app_name:hover {
+  transform: translateY(-5px);
+  /* 마우스 오버 시 약간 위로 이동 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  /* 마우스 오버 시 그림자 효과 강화 */
+}
+
+.right_logo {
+  display: inline-block;
+  border: 2px solid #007bff;
+  width: auto;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 30px;
+  vertical-align: unset;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 1px 8px 9px;
+}
+
+.serviceDescription {
+  display: inline-block;
+  vertical-align: text-bottom;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.serviceCheckMark {
+  color: #007bff;
+}
+
+.stickyNote {
+  position: sticky;
+  z-index: 3;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.bigBullet::before {
+  content: "\2022";
+  line-height: 0.8;
+  font-size: 26px;
+  vertical-align: middle;
+  color: #858282;
+}
+/* 제품 목록 및 설명 컨테이너 스타일 */
+.pro_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 좌측 제품 목록 박스 스타일 */
+.pro_left_box_container {
+  width: 37%;
+  position: relative;
+}
+
+.pro_left_box {
+  position: relative;
+  /* 부모 요소에 상대적 위치 설정 */
+  padding: 20px;
+  /* 내부 여백 설정 */
+  height: 170px;
+  /* 높이 설정 */
+  overflow-y: auto;
+  /* 내용이 넘칠 경우 세로 스크롤바 표시 */
+  background-color: rgba(65, 65, 65, 0.308);
+  /* 배경색과 투명도 설정 */
+  cursor: pointer;
+  /* 마우스 커서를 손가락 모양으로 변경 */
+  border: 1px solid rgba(255, 255, 255, 0.089);
+  /* 테두리 스타일과 색상 설정 */
+  backdrop-filter: blur(30px);
+  /* 배경에 블러 효과 적용 */
+  /* 그림자와 둥근 모서리를 위한 설정 */
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.19), 0 6px 6px rgba(255, 255, 255, 0.23);
+  /* 입체적인 그림자 효과 */
+  border-radius: 10px;
+  /* 둥근 모서리 설정 */
+}
+
+/* 스크롤바 전체 스타일 */
+.pro_left_box::-webkit-scrollbar {
+  width: 18px; /* 스크롤바의 너비 */
+}
+
+/* 스크롤바 트랙 (바탕) 스타일 */
+.pro_left_box::-webkit-scrollbar-track {
+  background: rgba(65, 65, 65, 0.5); /* 스크롤바 트랙의 배경색 */
+  border-radius: 10px; /* 둥근 모서리 */
+}
+
+/* 스크롤바 핸들 (움직이는 부분) 스타일 */
+.pro_left_box::-webkit-scrollbar-thumb {
+  background: rgba(36, 80, 174, 0.581); /* 스크롤바 핸들의 배경색 */
+  border-radius: 10px; /* 둥근 모서리 */
+  border: 3px solid transparent; /* 투명한 테두리 */
+  background-clip: padding-box; /* 내부 배경만 색상 적용 */
+}
+
+/* 스크롤바 핸들:hover 스타일 */
+.pro_left_box::-webkit-scrollbar-thumb:hover {
+  background: rgba(36, 80, 174, 0.8); /* 스크롤바 핸들의 배경색 (호버 시) */
+}
+
+/* 부모 요소의 가상 요소(::before) 스타일 설정 */
+.pro_left_box_container::before {
+  content: "";
+  /* 가상 요소 내용 없음 */
+  position: absolute;
+  /* 절대 위치 설정 */
+  width: 100px;
+  /* 가상 요소의 너비 */
+  height: 100px;
+  /* 가상 요소의 높이 */
+  background-color: rgb(144, 161, 255);
+  /* 가상 요소의 배경색 */
+  border-radius: 50%;
+  /* 원형 모양으로 설정 */
+  left: 140px;
+  /* 왼쪽에서의 위치 */
+  top: 50px;
+  /* 상단에서의 위치 */
+  z-index: -1;
+  /* 가상 요소를 부모 요소 뒤로 배치 */
+  transition: all 1s;
+  /* 모든 속성에 대해 1초 동안 변화 효과 적용 */
+}
+
+/* 부모 요소에 마우스를 올렸을 때의 가상 요소 변화 설정 */
+.pro_left_box_container:hover::before {
+  transform: translate(-50px, 50px);
+  /* 마우스 오버 시 이동 효과 적용 */
+}
+
+.pro_right_box_container {
+  width: 60%;
+  position: relative;
+}
+
+/* 우측 제품 설명 박스 스타일 */
+.pro_right_box {
+  padding: 20px;
+  border-radius: 10px;
+  /* 둥근 모서리 */
+  background-color: rgba(65, 65, 65, 0.308);
+  /* 배경색과 투명도 설정 */
+  backdrop-filter: blur(30px);
+  /* 배경에 블러 효과 적용 */
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.19), 0 6px 6px rgba(255, 255, 255, 0.23);
+  /* 입체감 있는 그림자 */
+  height: 170px;
+  /* 높이 설정 */
+  overflow-y: auto;
+  /* 내용이 넘칠 경우 스크롤바 표시 */
+  color: #ffffff;
+}
+
+/* 부모 요소의 가상 요소(::before) 스타일 설정 */
+.pro_right_box_container::before {
+  content: "";
+  /* 가상 요소 내용 없음 */
+  position: absolute;
+  /* 절대 위치 설정 */
+  width: 100px;
+  /* 가상 요소의 너비 */
+  height: 100px;
+  /* 가상 요소의 높이 */
+  background-color: rgb(144, 161, 255);
+  /* 가상 요소의 배경색 */
+  border-radius: 50%;
+  /* 원형 모양으로 설정 */
+  right: 140px;
+  /* 왼쪽에서의 위치 */
+  top: 50px;
+  /* 상단에서의 위치 */
+  z-index: -1;
+  /* 가상 요소를 부모 요소 뒤로 배치 */
+  transition: all 1s;
+  /* 모든 속성에 대해 1초 동안 변화 효과 적용 */
+}
+
+/* 부모 요소에 마우스를 올렸을 때의 가상 요소 변화 설정 */
+.pro_right_box_container:hover::before {
+  transform: translate(-50px, 50px);
+  /* 마우스 오버 시 이동 효과 적용 */
+}
+
+/* 제품 목록 스타일 */
+.pro_left_box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 제품 목록 항목 스타일 */
+.pro_left_box li {
+  padding: 9px;
+  margin-bottom: 13px;
+  /* 상하 여백 추가 */
+  background-color: none;
+  /* 항목 배경색 */
+  border-radius: 5px;
+  /* 둥근 모서리 */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.305);
+  /* 항목 그림자 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* 애니메이션 효과 */
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  background: linear-gradient(#020507, #020507) padding-box, linear-gradient(340deg, transparent 45%, #e81cff, #40c9ff) border-box;
+  border: 2px solid transparent;
+}
+
+/* 제품 목록 항목 호버 스타일 */
+.pro_left_box li:hover {
+  transform: translateY(-5px);
+  /* 호버 시 위로 이동 */
+  box-shadow: 0 4px 8px rgba(56, 255, 146, 0.393);
+  /* 호버 시 그림자 강조 */
+}
+
+/* 상품명 스타일 */
+.product_name {
+  font-weight: bold;
+  /* 상품명을 두껍게 표시 */
+  margin-right: 5px;
+  /* 카테고리명과의 간격 */
+}
+
+/* 카테고리명 스타일 */
+.category_name {
+  font-size: 0.8em; /* 상품명보다 작은 글씨 크기로 설정 */
+  color: #777; /* 카테고리명을 상품명보다 덜 도드라지게 표시 */
+}
+
+.selected_product {
+  border: 3.5px solid #108914 !important;
+  /* 더 선명한 녹색으로 테두리 색상 변경 */
+  border-radius: 10px;
+  /* 둥근 모서리 유지 */
+  /* 배경색 유지 */
+  box-shadow: 0 4px 8px rgba(64, 255, 166, 0.2);
+  /* 그림자 효과 추가 */
+  transform: scale(1.05);
+  /* 클릭 시 약간 확대 효과 */
+  transition: transform 0.3s, box-shadow 0.3s;
+  /* 부드러운 전환 효과 */
+}
+
+.add_database_btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  padding: 5px 10px;
+  border: 2px dotted gray;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  min-width: 160px;
+  min-height: 50px;
+  display: inline-flex;
+  /* Flexbox 모델 적용 */
+  align-items: center;
+  /* 수직 중앙 정렬 */
+  justify-content: center;
+  /* 수평 중앙 정렬 */
+}
+
+.add_database_btn:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+.plus_circle {
+  display: inline-flex;
+  /* Flexbox 모델 적용 */
+  justify-content: center;
+  /* 가로 중앙 정렬 */
+  align-items: center;
+  /* 세로 중앙 정렬 */
+  width: 25px;
+  /* 너비 */
+  height: 25px;
+  /* 높이 */
+  border-radius: 50%;
+  /* 동그라미 모양 */
+  background-color: #87CEEB;
+  /* 하늘색 배경 */
+  color: white;
+  /* 글자색 흰색 */
+  margin-right: 5px;
+  /* 오른쪽 마진으로 텍스트와 간격 조정 */
+}
+
+.plus {
+  width: 40px;
+  aspect-ratio: 1;
+  --c: linear-gradient(#ffffff 0 0);
+  --m: radial-gradient(farthest-side,#ffffff 92%,#0000);
+  background:var(--m) center /6px 6px,
+  /* 중앙 원의 크기를 반으로 줄임 */
+  var(--c) left 50% top -20px/4px 8px, var(--c) left 50% bottom -20px/4px 8px, var(--c) top 50% left -20px/8px 4px, var(--c) top 50% right -20px/8px 4px;
+  background-repeat: no-repeat;
+  animation: l18-1 1.5s infinite, l18-2 1.5s infinite;
+}
+@keyframes l18-1 {
+  30%,
+  70% {
+      background-position: center, left 50% top calc(50% - 4px), left 50% bottom calc(50% - 4px), top 50% left calc(50% - 4px), top 50% right calc(50% - 4px);
+  }
+}
+@keyframes l18-2 {
+  0%,
+  40% {
+      transform: rotate(0);
+  }
+  100%,
+  60% {
+      transform: rotate(90deg);
+  }
+}
+
+.loader {
+  width: fit-content;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 20px;
+  color: white;
+  background: linear-gradient(white 0 0) bottom left/0% 3px no-repeat;
+  animation: l14 1.5s infinite;
+  /* display: none; 제거 또는 수정 */
+}
+
+@keyframes l14 {
+  80% {
+    background-size: 100% 3px;
+  }
+  100% {
+    text-shadow: 0 0 0 #fff,0 0 0 #fff;
+  }
+}
+
+
+
+.section {
+  margin: 15px;
+  background: none;
+  margin-bottom: 40px;
+}
+
+.serverStatusContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e6e7e8;
+  border-radius: 15px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.serverBox {
+  background-color: #03203a;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  width: 45%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin: 10px;
+  font-size: large;
+
+}
+
+.serverBoxTitle {
+  color: #007bff;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.serverBoxP {
+  margin: 10px 0;
+  color: #ffffff;
+}
+
+.cpuUsageHigh {
+  color: red; /* CPU 사용량이 100일 때 적용할 색상 */
+  font-size: large;
+  font-weight: bold;
+}
+
+.serverBoxButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-size: medium;
+}
+
+.serverBoxButton:hover {
+  background-color: #218838;
+}
+
+.status_and_button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status {
+  flex-grow: 1;
+}
+
+.installStressTool {
+  background-color: #007bff;
+  color: white;
+  width: 40%;
+  min-height: 60px;
+  border: none;
+  padding: 10px 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-size: medium;
+}
+
+.installStressTool:hover {
+  background-color: #1a6d30;
+}
+
+.hostnameHighlight {
+  color: yellow; /* 노란색으로 설정 */
+}
+
+.logDataDescriptionTable {
+  border-radius: 5px;
+    /* 테두리 둥글게 */
+  margin-top: 15px;
+  /* 상단 여백 */
+  margin-bottom: 10px;
+  background-color: #1a6d30;
+  /* 배경색 */
+  color: white;
+  /* 글자색 */
+  padding: 0.5px;
+  padding-left: 20px;
+  text-align: left;
+  /* 텍스트 왼쪽 정렬 */
+  font-size: 14.5px;
+  font-weight: bold;
+}
+
+/* 로그 데이터 영역 스타일 */
+.logdata {
+    background-color: #e8e7e7;
+    /* 배경색 변경 */
+    padding: 10px;
+    /* 내부 여백 */
+    border-radius: 5px;
+    /* 테두리 둥글게 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* 그림자 효과 */
+    max-height: 150px;
+    /* 최대 높이 */
+    overflow-y: auto;
+    /* 세로 스크롤바 설정 */
+    min-height: 150px;
+    /* 최소 높이 설정 */
+    font-family: 'Courier New', Courier, monospace;
+    /* 폰트 변경 */
+    font-size: 0.9em;
+    /* 폰트 크기 조정 */
+    font-weight: 550;
+    color: #333;
+    /* 글자색 */
+    line-height: 1.4;
+    /* 줄 간격 */
+    padding-left: 20px;
+}
+
+.was_logDataDescriptionTable {
+  border-radius: 5px;
+    /* 테두리 둥글게 */
+  margin-top: 15px;
+  /* 상단 여백 */
+  margin-bottom: 10px;
+  background-color: #007bff;
+  /* 배경색 */
+  color: white;
+  /* 글자색 */
+  padding: 0.5px;
+  padding-left: 20px;
+  text-align: left;
+  /* 텍스트 왼쪽 정렬 */
+  font-size: 14.5px;
+  font-weight: bold;
+}
+
+/* 모바일 기기와 같은 작은 화면에 적용될 스타일 */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+  }
+
+  .leftSide, .rightSide {
+      flex: 1 0 100%;
+      width: 100%;
+  }
+
+  .navbar {
+      flex-direction: column;
+      padding: 1rem 0;
+  }
+
+  .navList {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .navItem {
+      margin: 5px 0;
+  }
+
+  .info {
+    max-width: 70%;
+    }
+}
+
+/* 태블릿과 같은 중간 크기의 화면에 적용될 스타일 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .leftSide {
+      flex: 3;
+  }
+
+  .rightSide {
+      flex: 7;
+  }
+
+  .info {
+    max-width: 70%;
+    font-size: 70%;
+  }
+
+  .name {
+    max-width: 70%;
+  }
+}
+
+/* 그보다 약간 큰 화면에 적용될 스타일 */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .leftSide {
+      flex: 3;
+  }
+
+  .rightSide {
+      flex: 7;
+  }
+
+  .info {
+    max-width: 75%; /* 내용의 최대 너비를 70%에서 80%로 조정 */
+    font-size: 75%; /* 폰트 크기를 70%에서 80%로 조정 */
+  }
+
+  .name {
+    max-width: 75%; /* 제목의 최대 너비를 70%에서 80%로 조정 */
+  }
+}
+
+/* 대형 화면에 적용될 스타일 */
+@media (min-width: 1025px) {
+  .leftSide {
+      flex: 2.5;
+  }
+
+  .rightSide {
+      flex: 7.5;
+  }
+}
